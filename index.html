@@ -10,12 +10,12 @@
 <style type="text/css">
     body{margin:0;padding:0;background:#ffe;font-size:12px;overflow:auto}
     #mainDiv{width:100%;height:100%}
-    /* #loveHeart{float:left;width:670px;height:625px} */#loveHeart{float:left;width:670px;height:625px} 
+    /* #loveHeart{float:left;width:670px;height:625px} */#loveHeart{float:left;width:670px;height:625px;} 
     #garden{width:50%;height:50%}
-    #elapseClock{text-align:right;font-size:18px;margin-top:10px;margin-bottom:10px}
-    /* #words{font-family:"sans-serif";width:500px;font-size:24px;color:#666} */#words{font-family:"sans-serif";width:60%;font-size:16px;color:#666}
-    #messages{display:none}
-    #elapseClock .digit{font-family:"digit";font-size:36px}
+    #elapseClock{text-align:left;font-size:16px;margin-top:10px;margin-bottom:10px}
+    /* #words{font-family:"sans-serif";width:500px;font-size:24px;color:#666} */#words{font-family:"sans-serif";width:100%;font-size:16px;color:#666}
+    #messages{display:none;text-align: center;}
+    #elapseClock .digit{font-family:"digit";font-size:28px}
     #loveu{padding:5px;font-size:22px;margin-top:80px;margin-right:120px;text-align:right;display:none}
     #loveu .signature{margin-top:10px;font-size:20px;font-style:italic}
     #clickSound{display:none}
@@ -28,10 +28,13 @@
     #copyright{margin-top:10px;text-align:center;width:100%;color:#666}
     #errorMsg{width:100%;text-align:center;font-size:24px;position:absolute;top:100px;left:0}
     #copyright a{color:#666}
-    @font-face {
-        font-family: digit;
-        src: url('digital-7_mono.ttf') format("truetype");
-    }
+
+    #code{margin-top:0 !important;font-size: 1.4rem;padding-left: 5%;width: 95%;}
+    #content{margin-top:20px !important;overflow: hidden;}
+    /* #loveHeart{width:100%;} */
+    #code .comments{font-size: 1.4rem;}
+    #garden {margin-left: 3%;}
+ 
 
     @media screen and (min-width:320px) and (max-width: 359px){
  	html{
@@ -461,10 +464,17 @@
             gardenCtx.globalCompositeOperation = "lighter";
             garden = new Garden(gardenCtx, gardenCanvas);
             
-            $("#content").css("width", $loveHeart.width() + $("#code").width());
-            $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-            $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
-            $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+            // $("#content").css("width", $loveHeart.width() + $("#code").width());
+            // $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
+            // $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
+            // $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+            // $("#content").css("width", "100%");
+            // $("#content").css("padding-left", "5%");
+            // $("#content").css("height", "");
+            // $("#content").css("margin-top", "");
+            // $("#content").css("margin-left", );
+
+
 
             // renderLoop
             setInterval(function () {
@@ -568,8 +578,8 @@
 
         function adjustWordsPosition() {
             $('#words').css("position", "absolute");
-            $('#words').css("top", $("#garden").position().top + 195);
-            $('#words').css("left", $("#garden").position().left + 70);
+            $('#words').css("top", $("#garden").position().top + 125);
+            $('#words').css("left", 0);
         }
 
         function adjustCodePosition() {
@@ -579,10 +589,10 @@
         function showLoveU() {
             $('#loveu').fadeIn(3000);
         }
-        </script>
+</script>
 
         <script>
-            $("#code").css("marginTop", "0");
+            // $("#code").css("marginTop", "90");
             $("#content").css("width","100%");
         </script>
 </head>
@@ -590,7 +600,7 @@
 <body>
 
 <div id="mainDiv">
-	<div id="content">
+	<div id="content" style="margin-top:90px;">
 		<div id="code">
 			<span class="comments">/**</span><br />
 			<span class="space"/><span class="comments">*2017—09-04,</span><br />
@@ -615,7 +625,8 @@
 			<span class="placeholder"/>The boy has but one dream;<br />
 			<span class="comments">// The boy wants the girl could well have been happy.</span><br />
 			<br>
-			<br>
+            <br>
+            <br>
 			I want to say:<br />
 			Baby, I love you forever;<br />
 		</div>
@@ -623,7 +634,7 @@
 			<canvas id="garden"></canvas>
 			<div id="words">
 				<div id="messages">
-					亲爱的，这是我们相爱在一起的时光。
+					亲爱的，这是我们相识相知的时光。
 					<div id="elapseClock"></div>
 				</div>
 				<div id="loveu">
@@ -633,6 +644,10 @@
 			</div>
 		</div>
     </div>
+
+    <audio src="http://hstatic.naerzu.com/mry0001/quyanglv/images/qfdy.mp3" autoplay="autoplay" loop="loop">
+            您的浏览器不支持 audio 标签。
+    </audio>
 </div>
 
 <script type="text/javascript">
